@@ -1,0 +1,161 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+body{
+    background-color: hsl(0, 0%, 20%);
+
+}
+.todo-list-container{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    background: linear-gradient(to right bottom , black,rgb(201, 201, 240));
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px rgb(63, 63, 63);
+    padding: 30px 20px;
+    max-width: 600px;
+    justify-self: center;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+.todo-list-title{
+    color: white;
+    margin-bottom: 30px;
+    
+}
+.todo-input{
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    margin-right: 10px;
+    outline-color: hsl(50, 100%, 40%);
+    font-size: 1.2em;
+}
+.todo-add{
+    cursor: pointer;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: hsl(120, 100%, 25%);
+    color: white;
+    font-size: 1.2em;
+    transform: scale(0.95);
+    transition: all .25s ease;
+    
+}
+.todo-add:hover{
+    background-color: hsl(120, 100%, 24%);
+    transform: scale(1);
+}
+.render-list-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+    margin: 40px 0px;
+    flex-wrap: wrap;
+    padding: 0px 20px;
+}
+.render-list{
+    flex: 0 0 48%;   
+    max-width: 600px;
+    padding: 10px;
+    background: white;
+    border-radius: 7px;
+    
+}
+.date{
+    background: #0d7e03;
+    color: white;
+    padding: 10px 0px;
+    text-align: center;
+}
+
+.task-container{
+
+    display: flex;
+    flex-direction: column;
+}
+.task{
+    display: flex;
+    padding: 20px 10px 40px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.314);   
+    text-align: left; 
+}
+.text{
+    flex: 1;
+}
+.text .task-text{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-bottom: 5px;
+
+}
+
+.text .description-text{
+    font-size: 1em;
+    color: hsl(0, 0%, 30%);
+}
+.delete-btn{
+    cursor: pointer;
+    border: none;
+    color: red;
+    background:none;
+    font-size: 1.1em;
+    margin: 0px 10px;
+    transform: scale(1);
+    transition: transform .25s ease;
+}
+.delete-btn:hover{
+    transform: scale(1.2);
+}
+
+.complete-btn{
+    cursor: pointer;
+    border: none;
+    color:green;
+    background: none;
+    font-size: 1.1em;
+    margin: 0px 10px;
+    transform: scale(1);
+    transition: transform .25s ease;
+}
+.complete-btn:hover{
+    transform: scale(1.2);
+}
+
+
+@media (max-width:900px){
+    .render-list{
+        min-width: 500px;
+    }
+}
+
+@media (max-width:570px){
+    .render-list{
+        min-width: 400px;
+    }
+}
+
+@media (max-width:460px){
+    .render-list{
+        min-width: 350px;
+    }
+}
+
+@media (max-width:400px){
+    .render-list{
+        min-width: 300px;
+    }
+}
+
+@media (max-width:350px){
+    .render-list{
+        min-width: 250px;
+    }
+}
