@@ -8,17 +8,14 @@ function Home(){
     const [newTask,setnewTask] = useState("");
     const [newDes,setNewDes] = useState("");
     const {setCompletedTasks} = useContext(TodoContext);
-    const [time,setTime] = useState(new Date());
-
+    const [time,setTime] = useState();
 
     useEffect(()=>{
         localStorage.setItem('tasks',JSON.stringify(tasks))
     },[tasks])
 
-    
-
     function handleAddTask(){
-      if(newTask){
+      if(newTask && time){
         if(tasks.length===0){
             setTasks((t)=>[...t, {date: time, dayOfTasks:[{newTask:newTask,newDes:newDes}]}])
         }else{
@@ -31,7 +28,6 @@ function Home(){
             if(taskDate.getDate()===extaskDate.getDate()){
                 task.dayOfTasks.push({ newTask: newTask, newDes: newDes });
                 isAdded = true;
-                console.log('matched');
             }
 
             return task;
@@ -39,14 +35,13 @@ function Home(){
 
 
         if(isAdded){
-            // setTasks((t) => [...t]);
             setTasks(()=>updatedTasks);
         }else{
             setTasks((t)=>[...t, {date: time, dayOfTasks:[{newTask:newTask,newDes:newDes}]}])
-            console.log('checked')
         }
 
         }
+
 
         setNewDes('');
         setnewTask('');
@@ -67,33 +62,6 @@ function Home(){
         
         
     }
-
-    // function handleMoveUpTask(index){
-        
-    //     if(index>0){
-    //     const updatedTasks=[...tasks]
-    //     const tmp=updatedTasks[index];                
-    //     updatedTasks[index]=updatedTasks[index-1];
-    //     updatedTasks[index-1]=tmp;
-        
-    //     setTasks(updatedTasks)
-        
-    //     }
-        
-    // }
-
-    // function handleMoveDownTask(index){
-        
-    //     if(index<tasks.length-1){
-    //     const updatedTasks=[...tasks]
-    //     const tmp=updatedTasks[index];                
-    //     updatedTasks[index]=updatedTasks[index+1];
-    //     updatedTasks[index+1]=tmp;
-        
-    //     setTasks(updatedTasks)
-        
-    //     }
-    // }
 
     function handleComplete(ind,index){
         const completionTime = new Date();
@@ -126,14 +94,23 @@ function Home(){
             <h1 className="todo-list-title">To-Do-List</h1>
 
             <div className="inputs">
-                <input className="todo-input" value={newTask} type="text" 
-                placeholder="Enter task..." onChange={(e)=>setnewTask(e.target.value)}/>
+                <input 
+                className="todo-input" 
+                value={newTask} type="text" 
+                placeholder="Enter task..."                 
+                onChange={(e)=>setnewTask(e.target.value)}/>
 
-                <input className="todo-input" value={newDes} type="text" 
-                placeholder="Enter Description..." onChange={(e)=>setNewDes(e.target.value)}/>
+                <input 
+                className="todo-input" 
+                value={newDes} type="text" 
+                placeholder="Enter Description..." 
+                onChange={(e)=>setNewDes(e.target.value)}/>
 
-                <input className="todo-input" value={time} type="date" 
-                placeholder="select date" onChange={(e)=>setTime(e.target.value)}/>
+                <input 
+                className="todo-input" 
+                value={time} type="date" 
+                placeholder="select date"                 
+                onChange={(e)=>setTime(e.target.value)}/>
 
                 <button className="todo-add" onClick={()=>handleAddTask()}>Add</button>
 

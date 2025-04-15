@@ -14,7 +14,7 @@ function Completed(){
             <h2 className="completed-task-title">{completedTask.task.newTask}</h2>
             <p className="completed-task-description">{completedTask.task.newDes}</p>
             <p className="completion-time">Completed at : {completedTask.time}</p>
-        </div>) : <p className="no-task-completion">No task has completed yet!😔</p>}
+        </div>) : <p className="no-task-completion">No task has been completed yet!😔</p>}
     </div>)
 }
 
