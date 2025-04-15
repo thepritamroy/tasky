@@ -13,7 +13,7 @@ function App() {
     <TodoProvider>
       <Routes>
         <Route path="/" element={<Home/>}></Route>
-        <Route path="/completed" element={<Completed/>}></Route>
+        <Route path="completed" element={<Completed/>}></Route>
       </Routes>
     </TodoProvider>
     
